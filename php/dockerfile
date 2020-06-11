@@ -1,0 +1,23 @@
+FROM php:7.4-fpm
+
+RUN apt-get update; \
+    apt-get upgrade; \
+    apt-get install -y zlib1g-dev libpng-dev libzip-dev \
+     libicu-dev libxml2 libxml2-dev curl libcurl4 libcurl3-dev 
+
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+# Install xdebug for development
+RUN    pecl install xdebug \
+    && docker-php-ext-enable xdebug
+   
+
+# Install PHP extensions
+RUN docker-php-ext-install bcmath gd pdo_mysql opcache
+
+
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+ENV PHP_IDE_CONFIG="serverName=dev.jupiter.lan"
