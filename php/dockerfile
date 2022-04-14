@@ -20,4 +20,5 @@ RUN docker-php-ext-install bcmath gd pdo_mysql opcache
 
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
-ENV PHP_IDE_CONFIG="serverName=dev.jupiter.lan"
+
+RUN mkdir -p /tmp/logs && chown www-data:www-data /tmp/logs

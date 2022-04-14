@@ -13,8 +13,7 @@ services:
       container_name: dev-webserver
       restart: unless-stopped
       ports:
-        - "80:80"
-        - "443:443"
+        - "8089:80"
       volumes:
         - ./www:/var/www/html/
         - ./site.conf:/etc/nginx/conf.d/default.conf
