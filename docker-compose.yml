@@ -8,6 +8,8 @@ services:
         - ./www:/var/www/html/   
       container_name: dev-php
       restart: unless-stopped
+      extra_hosts:
+        - "xdebug.docker.local:172.19.54.226"       
     webserver:
       image: nginx:alpine
       container_name: dev-webserver

@@ -27,3 +27,14 @@ xdebug.ini
 IP should be set host ip where the docker container is running. (Use `host.docker.internal` for windows).
 If change - have to rebuild the image.
 
+## Alternative method
+
+`xdebug.client_host=xdebug.docker.local`
+
+Add host name to docker-compose.yml file
+
+<pre>
+extra_hosts:
+    - "xdebug.docker.local:172.19.54.226" 
+</pre>        
+
