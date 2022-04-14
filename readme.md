@@ -15,3 +15,4 @@ Edit the php dockerfile to include php modules
     },
 },
 
+Path mapping should match docker-compose volume
